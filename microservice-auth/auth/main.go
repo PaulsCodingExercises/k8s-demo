@@ -10,13 +10,16 @@ import (
 type Greeter struct{}
 
 type HelloRequest struct {
+	name string
 }
 
 type HelloResponse struct {
+	reply string
 }
 
 func (g *Greeter) Hello(ctx context.Context, req *HelloRequest, rsp *HelloResponse) error {
 	fmt.Println("Hello service was called")
+	// (*rsp).reply = fmt.Sprintf("Hello %v. Thank you for interfacing with me.\n", req.name)
 	// Business logic goes here...
 	return nil
 }
